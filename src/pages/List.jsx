@@ -51,9 +51,9 @@ export default function List() {
         <Header />
         <section className="w-full min-h-screen h-auto p-3 mt-1 md:mt-7 rounded-md card">
           <h1 className="w-full text-sm">List Manhwa</h1>
-          <div className="mt-4">
+          <div className="mt-4 h-auto w-full text-wrap">
             <h3 className="font-semibold">Pilih berdasarkan awalan huruf:</h3>
-            <p className="mt-2">
+            <p className="mt-2 flex flex-wrap w-full text-xs h-auto">
               {Object.keys(groupedManhwas).sort().map(letter => (
                 <span key={letter}>
                   <a href={`#${letter}`} className="text-blue-500 mr-2">{letter}</a>
@@ -79,9 +79,9 @@ export default function List() {
               </div>
             ))}
           </div>
-          <div className="mt-4">
+          <div className="mt-4 h-auto w-auto">
             <h3 className="font-semibold">Pilih berdasarkan awalan huruf:</h3>
-            <p className="mt-2">
+            <p className="mt-2 flex w-auto flex-wrap text-xs h-auto">
               {Object.keys(groupedManhwas).sort().map(letter => (
                 <span key={letter}>
                   <a href={`#${letter}`} className="text-blue-500 mr-2">{letter}</a>
