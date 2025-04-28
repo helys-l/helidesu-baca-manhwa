@@ -4,13 +4,18 @@ import { Link } from 'react-router-dom';
 
 export default function Genre() {
   const [genres, setGenres] = useState([]);
+  
+  // Daftar kata/genre yang ingin difilter
+  const filterWords = ['doujinshi', 'lolicon', 'yaoi','ecchi', 'shotacon','yuri',]; // Tambahkan kata-kata yang ingin difilter
 
   useEffect(() => {
     async function getGenres() {
       const data = await fetchAnime('genres');
       if (data && data.genres) {
-        // Filter genre yang tidak berlabel 'doujinshi'
-        const filteredGenres = data.genres.filter(genre => genre.label.toLowerCase() !== 'doujinshi');
+        // Filter genre yang tidak ada dalam filterWords
+        const filteredGenres = data.genres.filter(genre => 
+          !filterWords.includes(genre.label.toLowerCase()) // Periksa apakah genre ada dalam filterWords
+        );
         setGenres(filteredGenres);
       }
     }
