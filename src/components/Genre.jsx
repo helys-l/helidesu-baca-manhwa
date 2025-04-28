@@ -2,7 +2,6 @@ import { fetchAnime } from '../utils/fetch.js';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
 export default function Genre() {
   const [genres, setGenres] = useState([]);
 
@@ -10,7 +9,9 @@ export default function Genre() {
     async function getGenres() {
       const data = await fetchAnime('genres');
       if (data && data.genres) {
-        setGenres(data.genres);
+        // Filter genre yang tidak berlabel 'doujinshi'
+        const filteredGenres = data.genres.filter(genre => genre.label.toLowerCase() !== 'doujinshi');
+        setGenres(filteredGenres);
       }
     }
     getGenres();
@@ -22,7 +23,7 @@ export default function Genre() {
       <div className="text-justify text-sm acc p-2 rounded-lg">
         {genres.map((genre, index) => (
           <span key={index}>
-           <Link to={`/genre/${genre.label.toLowerCase()}`} className='hover:underline'> {genre.label}</Link>
+            <Link to={`/genre/${genre.label.toLowerCase()}`} className='hover:underline'> {genre.label}</Link>
             {index !== genres.length - 1 && ', '}
           </span>
         ))}
