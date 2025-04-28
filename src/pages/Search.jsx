@@ -39,7 +39,7 @@ export default function Search() {
             onKeyDown={(e) => {
               if (e.key === "Enter") handleSearch();
             }}
-            placeholder="Search manhwa..."
+            placeholder="Search manhwa or manga..."
             className="w-[80%] h-[90%] p-2 rounded-md border"
           />
           <button
