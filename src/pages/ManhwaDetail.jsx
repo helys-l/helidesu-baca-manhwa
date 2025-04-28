@@ -45,12 +45,20 @@ export default function ManhwaDetail() {
                         <p className="text-sm"><strong>Updated On:</strong> {manhwa.updatedOn}</p>
                         <p className="text-sm">
                             <strong>Genre:</strong>{" "}
-                            {manhwa.genres.map((g, i) => (
-                                <span key={i}>
-                                    <a href={g.genreLink} className="text-blue-500 hover:underline">{g.genreName}</a>{i < manhwa.genres.length - 1 ? ", " : ""}
-                                </span>
-                            ))}
+                            {manhwa.genres.map((g, i) => {
+                                // Ekstrak id dari link
+                                const genreId = g.genreLink.split("/genres/")[1]?.replaceAll("/", "");
+                                return (
+                                    <span key={i}>
+                                        <Link to={`/genre/${genreId}`} className="text-blue-500 hover:underline">
+                                            {g.genreName}
+                                        </Link>
+                                        {i < manhwa.genres.length - 1 ? ", " : ""}
+                                    </span>
+                                );
+                            })}
                         </p>
+
                         <p className="text-sm"><strong>Description:</strong> {manhwa.synopsis}</p>
                     </div>
                 </section>
