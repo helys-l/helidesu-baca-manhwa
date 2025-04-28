@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --light-background: #F6DAE4; 
+  --light-card: #D4F0F7;       /* abu-abu terang */
+  --light-accent:#D0D5F7 ;     /* krem keunguan pastel */
+  --light-icon: #6a7282;       /* abu-abu gelap untuk text utama */
+
+  /* dark theme tetap */
+  --dark-background: #0f172a;
+  --dark-card: #1e293b;
+  --dark-accent: #6366f1;
+  --dark-icon: #e2e8f0;         /* abu muda untuk text terang di dark */
+}
+
+/* Kelas tema berdasarkan data-theme */
+html[data-theme='light'] {
+  --background-color: var(--light-background);
+  --card-color: var(--light-card);
+  --accent-color: var(--light-accent);
+  --text-color: var(--light-icon);
+}
+
+html[data-theme='dark'] {
+  --background-color: var(--dark-background);
+  --card-color: var(--dark-card);
+  --accent-color: var(--dark-accent);
+  --text-color: var(--dark-icon);
+}
+
+/* Gunakan variabel untuk elemen */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-color);
+  color: var(--text-color);
+}
+
+.acc {
+  background-color: var(--accent-color);
+}
+
+/* Hide scrollbar */
+.hide-scrollbar {
+  scrollbar-width: none; /* untuk Firefox */
+  -ms-overflow-style: none; /* untuk Internet Explorer dan Edge lama */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* untuk Chrome, Safari, dan Opera */
+}
