@@ -5,8 +5,8 @@ export default function CardTop({ rank, title, image, genres, url }) {
   const slug = url.split("/manga/")[1]?.replaceAll("/", "");
 
   return (
-    <div className="w-full aspect-[2/5] relative flex flex-col hover:scale-95 duration-500 items-center">
-      <p className="text-6xl absolute top-0 left-5">{rank}</p>
+    <div className="w-full aspect-[2/6] relative flex flex-col hover:scale-95 border-1 border-acc rounded-md duration-500 items-center">
+      <p className="text-6xl absolute top-0 left-2 ">{rank}</p>
       <Link to={`/manhwa-detail/${slug}`} className="w-[90%] aspect-[2/3] mt-8">
         <img src={image} alt={title} className="w-full h-full object-cover rounded-md" />
       </Link>
@@ -14,7 +14,7 @@ export default function CardTop({ rank, title, image, genres, url }) {
       {/* Semua genre ditampilkan */}
       <div className="flex flex-wrap justify-center gap-1 mt-1 px-1">
         {genres.map((genre, index) => (
-          <span key={index} className="text-[10px] text-gray-500">{genre}</span>
+          <span key={index} className="text-[10px]">{genre}</span>
         ))}
       </div>
     </div>
