@@ -1,7 +1,8 @@
 // src/components/Recommendation.jsx
 import { useEffect, useState } from 'react';
 import CardRecommendation from './CardRecommendation';
-import{ fetchAnime }  from '../utils/fetch.js';
+import { fetchAnime } from '../utils/fetch.js';
+import LoadingAnimation from './loadingAnimation/Loading.jsx';
 
 export default function Recommendation() {
   const [manhwas, setManhwas] = useState([]);
@@ -22,14 +23,21 @@ export default function Recommendation() {
     loadManhwa();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="w-full flex justify-center card rounded-md md:mt-7 mt-1 items-center h-screen">
+        <LoadingAnimation />
+      </div>
+    );
+  }
+
   return (
     <>
-    <h2 className='w-full text-center card rounded-md mt-1 md:mt-7 font-bold pt-6'>The perfect choice for you</h2>
-    <section className="w-full grid grid-cols-2 gap-2 sm:grid-cols-5 py-5 px-2 md:grid-cols-6 h-auto min-h-[20rem] card ">
-      {loading ? (
-        <p className="col-span-full text-center">Loading...</p>
-      ) : (
-        manhwas.map((manhwa, index) => (
+      <h2 className="w-full text-center card rounded-md mt-1 md:mt-7 font-bold pt-6">
+        The perfect choice for you
+      </h2>
+      <section className="w-full grid grid-cols-2 gap-2 sm:grid-cols-5 py-5 px-2 md:grid-cols-6 h-auto min-h-[20rem] card">
+        {manhwas.map((manhwa, index) => (
           <CardRecommendation
             key={index}
             title={manhwa.title}
@@ -38,9 +46,8 @@ export default function Recommendation() {
             imageSrc={manhwa.imageSrc}
             link={manhwa.link}
           />
-        ))
-      )}
-    </section>
+        ))}
+      </section>
     </>
   );
 }
