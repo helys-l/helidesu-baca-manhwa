@@ -12,8 +12,7 @@ export default function Header() {
                 <Link to='/' className='acc rounded-full aspect-square h-2/3  overflow-hidden my-auto hover:scale-95 duration-500 flex justify-center items-center'><img src={HomeIcon} className='h-[90%] aspect-square rounded-full' alt="" /></Link>
                 <Link to='/list' className='acc rounded-full aspect-square h-2/3  overflow-hidden my-auto hover:scale-95 duration-500 flex justify-center items-center'><img src={ListIcon} className='h-[90%] aspect-square rounded-full' alt="" /></Link>
                 <Link to='/search' className='h-2/3 my-auto aspect-square acc hover:scale-95 duration-500 flex justify-center items-center rounded-full overflow-hidden'><img src={SearchIcon} className='h-[90%] aspect-square rounded-full' alt="" /></Link>
-
             </div>
         </div>
     )
-}
+} 

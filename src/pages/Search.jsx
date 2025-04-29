@@ -69,7 +69,7 @@ export default function Search() {
                     <Link
                       key={index}
                       to={`/manhwa-detail/${slug}`}
-                      className="w-36 min-w-36 flex-shrink-0 flex flex-col bg-[var(--accent-color)] hover:scale-95 duration-500 rounded-md p-2"
+                      className="w-36 min-w-36 flex-shrink-0 flex flex-col max-h-56 bg-[var(--accent-color)] hover:scale-95 duration-500 rounded-md p-2"
                     >
                       <div className="w-full h-32 mb-2 overflow-hidden rounded">
                         <img

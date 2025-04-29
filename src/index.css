@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --light-background: #F6DAE4; 
-  --light-card: #D4F0F7;       /* abu-abu terang */
-  --light-accent:#D0D5F7 ;     /* krem keunguan pastel */
-  --light-icon: #6a7282;       /* abu-abu gelap untuk text utama */
+  --light-background:#aac9dd; 
+  --light-card:  #4f77aa;      
+  --light-accent:#78aed3 ;    
+  --light-icon: #d2e1e6;       
 
   /* dark theme tetap */
   --dark-background: #0f172a;
   --dark-card: #1e293b;
   --dark-accent: #6366f1;
-  --dark-icon: #e2e8f0;         /* abu muda untuk text terang di dark */
+  --dark-icon: #e2e8f0;         
 }
 
 /* Kelas tema berdasarkan data-theme */
